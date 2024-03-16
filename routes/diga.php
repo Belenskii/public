@@ -35,3 +35,11 @@ Route::get('/users', function(Request $request){
     return $request->name . '-' . $request->email;
 });
 
+Route::put('/welcome', function(){
+    return 'Update';
+});
+
+Route::patch('/digs', function(){
+    return 'update';
+});
+
