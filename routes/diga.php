@@ -43,3 +43,10 @@ Route::patch('/digs', function(){
     return 'update';
 });
 
+
+
+Route::middleware('extract.token')->group(function (){
+        Route::get('/users', function(){
+            return 'users';
+        });
+}); 
