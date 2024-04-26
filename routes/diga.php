@@ -3,6 +3,7 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\PostController;
 
 /*
 |--------------------------------------------------------------------------
@@ -46,7 +47,11 @@ Route::patch('/digs', function(){
 
 
 Route::middleware('extract.token')->group(function (){
-        Route::get('/users', function(){
-            return 'users';
-        });
+        Route::get('/users', [UserController::class, 'index']);
+        Route::patch('/users/{user}', [UserController::class, 'update']);
+
+        Route::post('/posts',[PostController::class, 'store']);
+        Route::put('/posts/{post}', [PostController::class,'update']);
+        Route::delete('/posts/{post}', [PostController::class, 'destroy']);
+       
 }); 

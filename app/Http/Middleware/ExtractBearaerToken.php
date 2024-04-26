@@ -22,7 +22,7 @@ class ExtractBearaerToken
         }
 
         if($token !== env('BEARER_TOKEN')){
-            return response()->json(["error"],403);
+            return response()->json(["error" => "Forbidden"],403);
         }
 
         return $next($request);
